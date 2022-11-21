@@ -18,3 +18,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.analysis.git.repository_url=$GITHUB_REPOSITORY
+            -Dsonar.analysis.git.branch=$GITHUB_REF
+            -Dsonar.analysis.git.commit.sha=$GITHUB_SHA
+            -Dsonar.analysis.env=ci
+            -Dsonar.analysis.service=dd-cloud-tools-sandbox
+            -Dsonar.analysis.tags=["key:value","key:$GITHUB_WORKFLOW"]
+        
