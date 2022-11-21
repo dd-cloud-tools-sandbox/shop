@@ -18,6 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          CUSTOM_ENV_VAR: envVarValue
         #with:
         #  args: >
         #    -Dsonar.analysis.git.repository_url=${env.GITHUB_REPOSITORY}
